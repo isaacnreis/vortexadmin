@@ -43,8 +43,13 @@ export const useAuthStore = defineStore("auth", () => {
 
   // Logout
   const logout = async () => {
-    await signOut(auth);
-    router.push("/");
+    try {
+      await signOut(auth);
+      user.value = null; // Remove o usuário da store
+      router.push("/"); // Redireciona para a tela de login
+    } catch (error) {
+      alert("Erro ao sair da conta.");
+    }
   };
 
   return { user, login, loginWithGoogle, logout };

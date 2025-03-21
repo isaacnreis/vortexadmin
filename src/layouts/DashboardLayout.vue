@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useAuthStore } from "../stores/authStore";
 const isSidebarOpen = ref(true);
+
+const authStore = useAuthStore();
+
+const handleLogout = () => {
+  authStore.logout();
+};
 </script>
 
 <template>
@@ -21,6 +28,13 @@ const isSidebarOpen = ref(true);
           <li><router-link to="/settings">⚙️ Configurações</router-link></li>
         </ul>
       </nav>
+
+      <button
+        @click="handleLogout"
+        class="mt-6 w-full bg-red-500 hover:bg-red-600 text-white p-2 rounded"
+      >
+        Sair
+      </button>
     </aside>
 
     <!-- Main Content -->

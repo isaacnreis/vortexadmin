@@ -16,6 +16,7 @@ const routes = [
   },
   { path: "/users", component: UsersView, meta: { requiresAuth: true } },
   { path: "/products", component: ProductsView, meta: { requiresAuth: true } },
+  { path: "/settings", component: HomeView, meta: { requiresAuth: true } },
 ];
 
 const router = createRouter({
