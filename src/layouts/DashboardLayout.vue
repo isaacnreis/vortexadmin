@@ -10,7 +10,9 @@ const isSidebarOpen = ref(true);
       class="bg-gray-900 text-white w-64 p-5 transition-all"
       v-if="isSidebarOpen"
     >
-      <h2 class="text-xl font-bold">VortexAdmin</h2>
+      <h2 class="text-xl font-bold">
+        <router-link to="/">VortexAdmin</router-link>
+      </h2>
       <nav class="mt-5">
         <ul>
           <li><router-link to="/dashboard">🏠 Dashboard</router-link></li>
