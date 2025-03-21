@@ -3,15 +3,8 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 
-// Simulação de autenticação para teste
-const isAuthenticated = true;
-
 const handleLogin = () => {
-  if (isAuthenticated) {
-    router.push("/dashboard"); // Redireciona para o painel se estiver autenticado
-  } else {
-    alert("Usuário não autenticado! (Futuro: Implementar autenticação)");
-  }
+  router.push("/dashboard");
 };
 </script>
 
