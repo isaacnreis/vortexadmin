@@ -9,6 +9,10 @@ const password = ref("");
 const handleLogin = () => {
   authStore.login(email.value, password.value);
 };
+
+const handleGoogleLogin = () => {
+  authStore.loginWithGoogle();
+};
 </script>
 
 <template>
@@ -31,6 +35,15 @@ const handleLogin = () => {
 
       <button @click="handleLogin" class="w-full bg-blue-500 text-white p-2">
         Entrar
+      </button>
+
+      <div class="text-center my-4 text-gray-500">ou</div>
+
+      <button
+        @click="handleGoogleLogin"
+        class="w-full bg-red-500 text-white p-2"
+      >
+        Entrar com Google
       </button>
     </div>
   </div>

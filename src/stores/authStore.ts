@@ -5,6 +5,8 @@ import {
   signOut,
   onAuthStateChanged,
   type User,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
@@ -28,11 +30,22 @@ export const useAuthStore = defineStore("auth", () => {
     }
   };
 
+  // Login com Google
+  const loginWithGoogle = async () => {
+    try {
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
+      router.push("/dashboard");
+    } catch (error) {
+      alert("Erro ao fazer login com Google.");
+    }
+  };
+
   // Logout
   const logout = async () => {
     await signOut(auth);
     router.push("/");
   };
 
-  return { user, login, logout };
+  return { user, login, loginWithGoogle, logout };
 });
