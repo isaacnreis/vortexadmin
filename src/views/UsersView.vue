@@ -5,7 +5,6 @@ import DashboardLayout from "../layouts/DashboardLayout.vue";
 
 const usersStore = useUsersStore();
 
-const newUser = ref({ name: "", email: "", role: "user" });
 const editingUser = ref(null as User | null); // Armazena o usuário que está sendo editado
 
 // Função para abrir o modal e preencher os dados do usuário selecionado
