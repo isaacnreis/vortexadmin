@@ -5,6 +5,7 @@ import HomeView from "../views/HomeView.vue";
 import ProductsView from "../views/ProductsView.vue";
 import { useAuthStore } from "../stores/authStore";
 import LoginView from "../views/LoginView.vue";
+import SettingsView from "../views/SettingsView.vue";
 
 const routes = [
   { path: "/", component: LoginView },
@@ -16,7 +17,7 @@ const routes = [
   },
   { path: "/users", component: UsersView, meta: { requiresAuth: true } },
   { path: "/products", component: ProductsView, meta: { requiresAuth: true } },
-  { path: "/settings", component: HomeView, meta: { requiresAuth: true } },
+  { path: "/settings", component: SettingsView, meta: { requiresAuth: true } },
 ];
 
 const router = createRouter({
