@@ -14,6 +14,7 @@ import { useRouter } from "vue-router";
 export const useAuthStore = defineStore("auth", () => {
   const user = ref<User | null>(null);
   const router = useRouter();
+  const loginFailure = ref(false);
 
   // Monitora mudanças na autenticação
   onAuthStateChanged(auth, (currentUser) => {
@@ -24,8 +25,10 @@ export const useAuthStore = defineStore("auth", () => {
   const login = async (email: string, password: string) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      loginFailure.value = false;
       router.push("/home"); // Redireciona após login
     } catch (error) {
+      loginFailure.value = true;
       alert("Erro ao fazer login. Verifique suas credenciais.");
     }
   };
@@ -35,8 +38,10 @@ export const useAuthStore = defineStore("auth", () => {
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      router.push("/dashboard");
+      loginFailure.value = false;
+      router.push("/home");
     } catch (error) {
+      loginFailure.value = true;
       alert("Erro ao fazer login com Google.");
     }
   };
@@ -52,5 +57,5 @@ export const useAuthStore = defineStore("auth", () => {
     }
   };
 
-  return { user, login, loginWithGoogle, logout };
+  return { user, login, loginWithGoogle, logout, loginFailure };
 });

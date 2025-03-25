@@ -45,7 +45,7 @@ const handleLogout = () => {
 
       <button
         @click="handleLogout"
-        class="mt-6 w-full bg-red-500 hover:bg-red-600 text-white p-2 rounded"
+        class="logout mt-6 w-full bg-red-500 hover:bg-red-600 text-white p-2 rounded"
       >
         Sair
       </button>
