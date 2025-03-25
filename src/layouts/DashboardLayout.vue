@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useAuthStore } from "../stores/authStore";
+import { useDarkMode } from "../composables/useDarkMode";
+import { SunIcon, MoonIcon } from "lucide-vue-next";
+
+const { isDark, toggleDark } = useDarkMode();
+
 const isSidebarOpen = ref(true);
 
 const authStore = useAuthStore();
@@ -30,6 +35,15 @@ const handleLogout = () => {
       </nav>
 
       <button
+        @click="toggleDark()"
+        class="mt-6 flex items-center gap-2 bg-gray-700 hover:bg-gray-600 p-2 rounded"
+      >
+        <SunIcon v-if="isDark" class="w-5 h-5 text-yellow-300" />
+        <MoonIcon v-else class="w-5 h-5 text-white" />
+        <span>Alternar Tema</span>
+      </button>
+
+      <button
         @click="handleLogout"
         class="mt-6 w-full bg-red-500 hover:bg-red-600 text-white p-2 rounded"
       >
@@ -42,7 +56,9 @@ const handleLogout = () => {
       <header class="bg-gray-800 text-white p-4">
         <button @click="isSidebarOpen = !isSidebarOpen">🔀</button>
       </header>
-      <main class="p-5">
+      <main
+        class="flex-1 p-6 bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white"
+      >
         <slot />
         <!-- Aqui vai o conteúdo das páginas -->
       </main>

@@ -45,7 +45,7 @@ const deleteProduct = (id: number) => {
     <div class="p-6">
       <h1 class="text-2xl font-bold mb-4">Gerenciar Produtos</h1>
 
-      <div class="mb-6 p-4 bg-gray-100 rounded-lg">
+      <div class="mb-6 p-4 bg-gray-100 rounded-lg dark:bg-gray-900">
         <h2 class="font-semibold mb-2">Adicionar Novo Produto</h2>
         <input
           v-model="newProduct.name"
@@ -71,7 +71,7 @@ const deleteProduct = (id: number) => {
 
       <table class="w-full border-collapse border border-gray-300">
         <thead>
-          <tr class="bg-gray-200">
+          <tr class="bg-gray-200 dark:bg-gray-700">
             <th class="border border-gray-300 p-2">ID</th>
             <th class="border border-gray-300 p-2">Nome</th>
             <th class="border border-gray-300 p-2">Preço</th>

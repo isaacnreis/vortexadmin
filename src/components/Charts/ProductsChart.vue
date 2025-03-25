@@ -49,7 +49,9 @@ const chartOptions: any = {
 
 <template>
   <div class="bg-white p-4 rounded-lg shadow-md">
-    <h2 class="text-xl font-semibold mb-2">Estoque de Produtos</h2>
+    <h2 class="text-xl text-gray-900 font-semibold mb-2">
+      Estoque de Produtos
+    </h2>
     <Bar :data="chartData" :options="chartOptions" />
   </div>
 </template>

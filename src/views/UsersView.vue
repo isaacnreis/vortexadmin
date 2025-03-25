@@ -68,7 +68,7 @@ const saveUser = () => {
         v-if="editingUser"
         class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
       >
-        <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-1/3 dark:bg-gray-900">
           <h2 class="text-2xl font-bold mb-4">Editar Usuário</h2>
 
           <div class="mb-4">
@@ -91,7 +91,7 @@ const saveUser = () => {
             <label class="block font-semibold">Função:</label>
             <select
               v-model="editingUser.role"
-              class="w-full p-2 border rounded"
+              class="w-full p-2 border rounded dark:bg-gray-900"
             >
               <option value="admin">Admin</option>
               <option value="user">User</option>
